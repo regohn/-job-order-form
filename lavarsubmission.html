@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Order Submission</title>
+</head>
+<body>
+    <h2>Submit Job Order</h2>
+    <form id="jobOrderForm">
+        <label for="joNumber">Job Order #:</label>
+        <input type="text" id="joNumber" name="joNumber" required>
+        
+        <label for="nameSelect">Select Name:</label>
+        <select id="nameSelect" name="selectedName">
+            <option value="John Doe">John Doe</option>
+            <option value="Jane Smith">Jane Smith</option>
+            <option value="Alice Johnson">Alice Johnson</option>
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("jobOrderForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const formData = {
+                joNumber: document.getElementById("joNumber").value,
+                selectedName: document.getElementById("nameSelect").value
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbz5TJ3sEc6j0LHK21XWovc8FNgcZT6HTiH84qPK8ndtcBrY_BECT7u4Rv7QGgEVr1hA/exec", {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.text())
+            .then(data => alert("Submission Successful!"))
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>
