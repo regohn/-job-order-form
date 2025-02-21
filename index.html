@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Order Submission</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Submit Job Order</h2>
-    <form id="jobOrderForm">
-        <label for="joNumber">Job Order #:</label>
-        <input type="text" id="joNumber" name="joNumber" required>
-        
-        <label for="nameSelect">Select Name:</label>
-        <select id="nameSelect" name="selectedName">
-            <option value="John Doe">John Doe</option>
-            <option value="Jane Smith">Jane Smith</option>
-            <option value="Alice Johnson">Alice Johnson</option>
-        </select>
-        
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h2>Submit Job Order</h2>
+        <form id="jobOrderForm">
+            <label for="joNumber">Job Order #</label>
+            <input type="text" id="joNumber" name="joNumber" placeholder="Enter JO Number" required>
+
+            <label for="nameSelect">Select Name</label>
+            <select id="nameSelect" name="selectedName">
+                <option value="John Doe">John Doe</option>
+                <option value="Jane Smith">Jane Smith</option>
+                <option value="Alice Johnson">Alice Johnson</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <script>
         document.getElementById("jobOrderForm").addEventListener("submit", function(event) {
